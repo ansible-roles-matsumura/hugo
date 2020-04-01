@@ -1,0 +1,13 @@
+---
+- name: Add hugo repo to the system
+  yum_repository:
+    name: hugo
+    description: Copr repo for hugo owned by daftaupe
+    baseurl: https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/epel-7-$basearch/
+    gpgcheck: yes
+    gpgkey: https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/pubkey.gpg
+
+- name: Install Hugo
+  yum:
+    name: hugo
+    state: present

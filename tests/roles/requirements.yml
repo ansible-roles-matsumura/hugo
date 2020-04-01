@@ -1,0 +1,3 @@
+---
+- src: https://github.com/ansible-roles-matsumura/hugo.git
+  name: matsumura.hugo
