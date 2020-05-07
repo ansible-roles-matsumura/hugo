@@ -3,9 +3,11 @@
   yum_repository:
     name: hugo
     description: Copr repo for hugo owned by daftaupe
-    baseurl: https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/epel-7-$basearch/
+    baseurl: |
+      https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/epel-7-$basearch/
     gpgcheck: yes
-    gpgkey: https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/pubkey.gpg
+    gpgkey: |
+      https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/pubkey.gpg
 
 - name: Install Hugo
   yum:

@@ -1,6 +1,7 @@
-[![](https://github.com/ansible-roles-matsumura/hugo/workflows/Build/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3ABuild)
-[![](https://github.com/ansible-roles-matsumura/hugo/workflows/Lint/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3ALint)
-[![](https://github.com/ansible-roles-matsumura/hugo/workflows/Trailing%20whitespace/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3A%22Trailing+whitespace%22)
+[![](https://github.com/ansible-roles-matsumura/hugo/workflows/yamllint/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3Ayamllint)
+[![](https://github.com/ansible-roles-matsumura/hugo/workflows/ansible-playbook/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3Aansible-playbook)
+[![](https://github.com/ansible-roles-matsumura/hugo/workflows/ansible-lint/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3Aansible-lint)
+[![](https://github.com/ansible-roles-matsumura/hugo/workflows/trailing%20whitespace/badge.svg)](https://github.com/ansible-roles-matsumura/hugo/actions?query=workflow%3A%22trailing+whitespace%22)
 
 Role Description
 =========
