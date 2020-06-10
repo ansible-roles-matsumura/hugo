@@ -1,15 +1,25 @@
 ---
+- name: Check whether Hugo is installed
+  shell: hugo version
+  register: HUGO_INSTALLED
+  changed_when: false
+  ignore_errors: true
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+
 - name: Add hugo repo to the system
   yum_repository:
     name: hugo
     description: Copr repo for hugo owned by daftaupe
     baseurl: |
-      https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/epel-7-$basearch/
+      'https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/epel-{{ ansible_distribution_major_version }}-$basearch/'
     gpgcheck: yes
     gpgkey: |
       https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/pubkey.gpg
+  when: HUGO_INSTALLED is failed
 
 - name: Install Hugo
-  yum:
+  package:
     name: hugo
     state: present
+  when: HUGO_INSTALLED is failed

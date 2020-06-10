@@ -1,0 +1,28 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Install which
+      package:
+        name: which
+
+    - name: Check whether hugo is installed
+      command: hugo version
+      environment:
+        TERM: xterm
+      register: HUGO_VERSION
+      changed_when: false
+
+    - name: Check OS version
+      command: cat /etc/redhat-release
+      register: OS_VERSION
+      changed_when: false
+
+    - name: Show Hugo version
+      debug:
+        var: HUGO_VERSION
+
+    - name: Show OS version
+      debug:
+        var: OS_VERSION
