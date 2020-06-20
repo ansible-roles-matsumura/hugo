@@ -9,8 +9,6 @@
 
     - name: Check whether hugo is installed
       command: hugo version
-      environment:
-        TERM: xterm
       register: HUGO_VERSION
       changed_when: false
 
