@@ -3,10 +3,6 @@
   hosts: all
 
   tasks:
-    - name: Install which
-      package:
-        name: which
-
     - name: Check whether hugo is installed
       command: hugo version
       register: HUGO_VERSION
