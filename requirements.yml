@@ -1,7 +1,0 @@
----
-roles:
-  - name: hugo
-    src: https://github.com/ansible-roles-matsumura/hugo.git
-
-collections:
-  - name: community.general
