@@ -4,19 +4,19 @@
 
   tasks:
     - name: Check whether hugo is installed
-      command: hugo version
+      ansible.builtin.command: hugo version
       register: HUGO_VERSION
       changed_when: false
 
     - name: Check OS version
-      command: cat /etc/redhat-release
+      ansible.builtin.command: cat /etc/redhat-release
       register: OS_VERSION
       changed_when: false
 
     - name: Show Hugo version
-      debug:
+      ansible.builtin.debug:
         var: HUGO_VERSION
 
     - name: Show OS version
-      debug:
+      ansible.builtin.debug:
         var: OS_VERSION

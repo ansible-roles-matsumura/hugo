@@ -1,6 +1,6 @@
 ---
 - name: Check whether Hugo is installed
-  shell: hugo version
+  ansible.builtin.shell: hugo version
   register: HUGO_INSTALLED
   changed_when: false
   ignore_errors: true
@@ -8,7 +8,7 @@
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
 
 - name: Add hugo repo to the system
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: hugo
     description: Copr repo for hugo owned by daftaupe
     baseurl: |
@@ -19,7 +19,7 @@
   when: HUGO_INSTALLED is failed
 
 - name: Install Hugo
-  package:
+  ansible.builtin.package:
     name: hugo
     state: present
   when: HUGO_INSTALLED is failed
