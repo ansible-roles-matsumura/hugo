@@ -7,16 +7,32 @@
   environment:
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
 
-- name: Add hugo repo to the system
+- name: Add hugo repo to the system(CentOS7)
   ansible.builtin.yum_repository:
     name: hugo
     description: Copr repo for hugo owned by daftaupe
     baseurl: |
-      'https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/epel-{{ ansible_distribution_major_version }}-$basearch/'
+      'https://copr.fedorainfracloud.org/coprs/daftaupe/hugo/repo/epel-7/daftaupe-hugo-epel-7.repo'
+    gpgcheck: yes
+      https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/pubkey.gpg
+  when:
+    - HUGO_INSTALLED is failed
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+- name: Add hugo repo to the system(CentOS8)
+  ansible.builtin.yum_repository:
+    name: hugo
+    description: Copr repo for hugo owned by daftaupe
+    baseurl: |
+      'https://copr.fedorainfracloud.org/coprs/daftaupe/hugo/repo/centos-stream-8/daftaupe-hugo-centos-stream-8.repo'
     gpgcheck: yes
     gpgkey: |
       https://download.copr.fedorainfracloud.org/results/daftaupe/hugo/pubkey.gpg
-  when: HUGO_INSTALLED is failed
+  when:
+    - HUGO_INSTALLED is failed
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
 
 - name: Install Hugo
   ansible.builtin.package:
